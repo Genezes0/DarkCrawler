@@ -1,15 +1,25 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
-def search_with_selenium(driver, query):
+def search_with_findtor(driver, query):
+    driver.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion")
     search_box = driver.find_element(By.NAME, "q")
-    search_box.clear()  
+    search_box.clear()
     search_box.send_keys(query)
-    search_box.send_keys(Keys.RETURN)
+    search_box.submit()
 
-    driver.implicitly_wait(10)
+    return extract_links(driver)
 
+def search_with_tordex(driver, query):
+    driver.get("http://tordexu73joywapk2txdr54jed4imqledpcvcuf75qsas2gwdgksvnyd.onion/")
+    search_box = driver.find_element(By.NAME, "query")
+    search_box.clear()
+    search_box.send_keys(query)
+    search_box.submit()
+
+    return extract_links(driver)
+
+def extract_links(driver):
     links = []
     link_elements = driver.find_elements(By.TAG_NAME, "a")
     for link_element in link_elements:
@@ -34,10 +44,16 @@ if __name__ == "__main__":
 
     driver = webdriver.Firefox(options=options)
 
-    driver.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion")
+    search_query = input("Insira a palavra-chave: ")
 
-    search_query = input("Insira a palavra-chave: ") 
-    onion_links = search_with_selenium(driver, search_query)
+    choice = input("Escolha o mecanismo de busca (FindTor/TorDex): ").lower()
+
+    if choice == "findtor":
+        onion_links = search_with_findtor(driver, search_query)
+    elif choice == "tordex":
+        onion_links = search_with_tordex(driver, search_query)
+    else:
+        print("Escolha de mecanismo de busca inválida!")
 
     for link in onion_links:
         print(link)
