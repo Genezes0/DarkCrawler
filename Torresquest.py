@@ -31,7 +31,7 @@ base_url = "http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onio
 session = requests.session()
 page_number = 1
 while True:
-    page = session.get(base_url + str(page_number))
+    page = session.get(base_url + int(page_number))
     soup = BeautifulSoup(page.text, 'html.parser')
     main_tag = soup.find('main', class_='results') 
     if not main_tag:
