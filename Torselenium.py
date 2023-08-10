@@ -11,11 +11,13 @@ def search_with_selenium(driver, query):
     driver.implicitly_wait(10)
 
     links = []
-    link_elements = driver.find_elements(By.TAG_NAME, "a")
-    for link_element in link_elements:
-        link_href = link_element.get_attribute("href")
-        if link_href and link_href.startswith("http://"):
-            links.append(link_href)
+    result_elements = driver.find_elements(By.CLASS_NAME, "result")
+    for result_element in result_elements:
+        link_elements = result_element.find_elements(By.TAG_NAME, "a")
+        for link_element in link_elements:
+            link_href = link_element.get_attribute("href")
+            if link_href and link_href.startswith("http://"):
+                links.append(link_href)
     return links
 
 if __name__ == "__main__":
