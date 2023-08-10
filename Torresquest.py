@@ -27,96 +27,23 @@ xquery = input ("Please set your query : ")
 #####
 print ("")
 print(colored('[+] Searching in "FindTor" http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion  ', 'green' ))
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=1")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=1")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
+base_url = "http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page="
+session = requests.session()
+page_number = 1
+while True:
+    page = session.get(base_url + str(page_number))
+    soup = BeautifulSoup(page.text, 'html.parser')
+    main_tag = soup.find('main', class_='results') 
+    if not main_tag:
+        break
+    
+link_elements = main_tag.find_all('a', href=True)
 for link_element in link_elements:
     link = link_element['href']
     if link.startswith('http://'):
         print(link)
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=2")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=2")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
-for link_element in link_elements:
-    link = link_element['href']
-    if link.startswith('http://'):
-        print(link)
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=3")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=3")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
-for link_element in link_elements:
-    link = link_element['href']
-    if link.startswith('http://'):
-        print(link)
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=4")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=4")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
-for link_element in link_elements:
-    link = link_element['href']
-    if link.startswith('http://'):
-        print(link)
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=5")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=5")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
-for link_element in link_elements:
-    link = link_element['href']
-    if link.startswith('http://'):
-        print(link)
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=6")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=6")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
-for link_element in link_elements:
-    link = link_element['href']
-    if link.startswith('http://'):
-        print(link)
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=7")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=7")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
-for link_element in link_elements:
-    link = link_element['href']
-    if link.startswith('http://'):
-        print(link)
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=8")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=8")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
-for link_element in link_elements:
-    link = link_element['href']
-    if link.startswith('http://'):
-        print(link)
-session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=9")
-page = session.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion/search?q=" + xquery + "&page=9")
-soup = BeautifulSoup(page.text, 'html.parser')
-main_tag = soup.find('main', class_='results')
-if main_tag:
-    link_elements = main_tag.find_all('a', href=True)
-for link_element in link_elements:
-    link = link_element['href']
-    if link.startswith('http://'):
-        print(link)
+    
+page_number += 1
 print(colored('[+] Done from FindTor', 'yellow' ))
 
 
