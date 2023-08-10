@@ -1,8 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+
 
 def search_with_selenium(driver, query):
-    search_box = driver.find_element_by_name("q")
+    search_box = driver.find_element(By.NAME, "q")
     search_box.clear()  
     search_box.send_keys(query)
     search_box.send_keys(Keys.RETURN)
@@ -10,9 +12,9 @@ def search_with_selenium(driver, query):
     driver.implicitly_wait(10)
 
     links = []
-    result_elements = driver.find_elements_by_class_name("result")
+    result_elements = driver.find_elements(By.CLASS_NAME, "result")
     for result_element in result_elements:
-        link = result_element.find_element_by_tag_name("a")
+        link = result_element.find_element(By.TAG_NAME, "a")
         links.append(link.get_attribute("href"))
     
     return links
