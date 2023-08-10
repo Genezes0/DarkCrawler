@@ -8,24 +8,35 @@ def search_with_findtor(driver, query):
     search_box.send_keys(query)
     search_box.submit()
 
-    return extract_links(driver)
+    return extract_links_findtor(driver)
 
 def search_with_tordex(driver, query):
     driver.get("http://tordexu73joywapk2txdr54jed4imqledpcvcuf75qsas2gwdgksvnyd.onion/")
-    search_box = driver.find_element(By.NAME, "query")
+    search_box = driver.find_element(By.NAME, "q")
     search_box.clear()
     search_box.send_keys(query)
     search_box.submit()
 
-    return extract_links(driver)
+    return extract_links_tordex(driver)
 
-def extract_links(driver):
+def extract_links_findtor(driver):
     links = []
     link_elements = driver.find_elements(By.TAG_NAME, "a")
     for link_element in link_elements:
         link_href = link_element.get_attribute("href")
         if link_href and link_href.startswith("http://"):
             links.append(link_href)
+    return links
+
+def extract_links_tordex(driver):
+    links = []
+    result_elements = driver.find_elements(By.CLASS_NAME, "result")
+    for result_element in result_elements:
+        link_elements = result_element.find_elements(By.TAG_NAME, "a")
+        for link_element in link_elements:
+            link_href = link_element.get_attribute("href")
+            if link_href and link_href.startswith("http://"):
+                links.append(link_href)
     return links
 
 if __name__ == "__main__":
