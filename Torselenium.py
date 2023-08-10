@@ -10,13 +10,13 @@ def search_with_selenium(driver, query):
 
     driver.implicitly_wait(10)
 
-links = []
-link_elements = driver.find_elements(By.TAG_NAME, "a")
-for link_element in link_elements:
-    link_href = link_element.get_attribute("href")
-    if link_href and link_href.startswith("http://"):
-        links.append(link_href)
-return links
+    links = []
+    link_elements = driver.find_elements(By.TAG_NAME, "a")
+    for link_element in link_elements:
+        link_href = link_element.get_attribute("href")
+        if link_href and link_href.startswith("http://"):
+            links.append(link_href)
+    return links
 
 if __name__ == "__main__":
     options = webdriver.FirefoxOptions()
@@ -36,10 +36,10 @@ if __name__ == "__main__":
 
     driver.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion")
 
-    search_query = input("Insira a palavra-chave:" ) 
+    search_query = input("Insira a palavra-chave: ") 
     onion_links = search_with_selenium(driver, search_query)
 
-for link in onion_links:
-    print(link)
+    for link in onion_links:
+        print(link)
 
-driver.quit()
+    driver.quit()
