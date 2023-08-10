@@ -3,14 +3,12 @@ from selenium.webdriver.common.keys import Keys
 
 def search_with_selenium(driver, query):
     search_box = driver.find_element_by_name("q")
-    search_box.clear()  # Clear any previous text
+    search_box.clear()  
     search_box.send_keys(query)
     search_box.send_keys(Keys.RETURN)
 
-    # Wait for results to load
     driver.implicitly_wait(10)
 
-    # Extrair links dos resultados
     links = []
     result_elements = driver.find_elements_by_class_name("result")
     for result_element in result_elements:
