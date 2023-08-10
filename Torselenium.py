@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
-
 def search_with_selenium(driver, query):
     search_box = driver.find_element(By.NAME, "q")
     search_box.clear()  
@@ -11,16 +10,21 @@ def search_with_selenium(driver, query):
 
     driver.implicitly_wait(10)
 
-    links = []
-    result_elements = driver.find_elements(By.CLASS_NAME, "result")
-    for result_element in result_elements:
-        link = result_element.find_element(By.TAG_NAME, "a")
-        links.append(link.get_attribute("href"))
+links = []
+result_elements = driver.find_elements(By.CLASS_NAME, "result")
+for result_element in result_elements:
+    link_elements = result_element.find_elements(By.TAG_NAME, "a")
+    for link_element in link_elements:
+        link_href = link_element.get_attribute("href")
+        if link_href and link_href.startswith("http://"):
+            links.append(link_href)
     
-    return links
+return links
 
 if __name__ == "__main__":
     options = webdriver.FirefoxOptions()
+    options.headless = True
+
     profile = webdriver.FirefoxProfile()
 
     profile.set_preference("network.proxy.type", 1)
@@ -30,17 +34,15 @@ if __name__ == "__main__":
     profile.set_preference("network.proxy.socks_remote_dns", True)
 
     options.profile = profile
+
     driver = webdriver.Firefox(options=options)
 
     driver.get("http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion")
 
-    search_query = input("Enter your search query: ")
+    search_query = input("Insira a palavra-chave:" ) 
     onion_links = search_with_selenium(driver, search_query)
 
-    for link in onion_links:
-        print(link)
+for link in onion_links:
+    print(link)
 
-    # Mantenha o navegador aberto para inspecionar manualmente
-    input("Press Enter to close the browser...")
-
-    driver.quit()
+driver.quit()
