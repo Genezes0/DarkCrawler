@@ -11,14 +11,12 @@ import re
 
 print(colored('[!] Tor proxy must be on port 9050 ', 'yellow' )) 
 print(colored('[+] Checking TOR... ', 'green' )) 
-#search launch**
 
 session = requests.session()
 session.proxies = {'http':  'socks5h://localhost:9050',
                    'https': 'socks5h://localhost:9050'}
 print(session.get('http://httpbin.org/ip').text) 
 print(colored('[+] Got session... ', 'green' ))
-###################################################################################################### 
 print ("") 
 xquery = input ("Please set your query : ") 
 
