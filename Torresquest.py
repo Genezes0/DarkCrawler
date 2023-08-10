@@ -25,7 +25,7 @@ xquery = input ("Please set your query : ")
 
 
 #####
-##### OnionLand
+##### FindTor
 #####
 print ("")
 print(colored('[+] Searching in "FindTor" http://findtorroveq5wdnipkaojfpqulxnkhblymc7aramjzajcvpptd4rjqd.onion  ', 'green' ))
@@ -468,7 +468,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=1")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set() 
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -479,7 +479,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=2")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -490,7 +490,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=3")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -501,7 +501,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=4")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -512,7 +512,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=5")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -523,7 +523,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=6")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -534,7 +534,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=7")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -545,7 +545,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=8")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -556,7 +556,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=9")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set() 
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -567,7 +567,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=10")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -578,7 +578,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=11")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -589,7 +589,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=12")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set()  
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
@@ -600,7 +600,7 @@ session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.oni
 page = session.get("http://no6m4wzdexe3auiupv2zwif7rm6qwxcyhslkcnzisxgeiw6pvjsgafad.onion/search.php?term=" + xquery + "&page=13")
 soup = BeautifulSoup(page.text, 'html.parser')
 list_elements = soup.find_all(class_='list')
-href_values = set()  # Use a set to store unique href values
+href_values = set() 
 for list_element in list_elements:
     href = list_element.text.strip()
     if href.startswith('http://'):
