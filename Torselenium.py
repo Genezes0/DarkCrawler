@@ -12,7 +12,7 @@ def search_with_findtor(driver, query):
 
 def search_with_tordex(driver, query):
     driver.get("http://tordexu73joywapk2txdr54jed4imqledpcvcuf75qsas2gwdgksvnyd.onion/")
-    search_box = driver.find_element(By.NAME, "q")
+    search_box = driver.find_element(By.NAME, "query")
     search_box.clear()
     search_box.send_keys(query)
     search_box.submit()
