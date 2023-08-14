@@ -22,7 +22,7 @@ def search_with_selenium(driver, query):
 
 if __name__ == "__main__":
     options = webdriver.FirefoxOptions()
-
+    options.headless = True
     profile = webdriver.FirefoxProfile()
 
     profile.set_preference("network.proxy.type", 1)
