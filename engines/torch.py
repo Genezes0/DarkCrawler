@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 def search_with_selenium(driver, query):
-    search_box = driver.find_element(By.NAME, "query")
+    search_box = driver.find_element(By.NAME, "P")
     search_box.clear()  
     search_box.send_keys(query)
     search_box.send_keys(Keys.RETURN)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     driver = webdriver.Firefox(options=options)
 
-    driver.get("http://tordexu73joywapk2txdr54jed4imqledpcvcuf75qsas2gwdgksvnyd.onion")
+    driver.get("http://xmh57jrknzkhv6y3ls3ubitzfqnkrwxhopf5aygthi7d6rplyvk3noyd.onion")
 
     search_query = input("Insira a palavra-chave: ") 
     onion_links = search_with_selenium(driver, search_query)
