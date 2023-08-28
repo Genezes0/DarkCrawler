@@ -4,7 +4,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 def search_with_selenium(driver, query):
-    search_box = driver.find_element(By.NAME, "query")
+    try:
+        search_box = driver.find_element(By.NAME, "query")
+    except:
+        search_box = driver.find_element(By.NAME, "q")
     search_box.clear()  
     search_box.send_keys(query)
     search_box.send_keys(Keys.RETURN)
