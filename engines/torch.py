@@ -2,9 +2,17 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from bs4 import BeautifulSoup
 
 def search_with_selenium(driver, query):
-    search_box = driver.find_element(By.NAME, "P")
+    try:
+        search_box = driver.find_element(By.NAME, "P")
+    except:
+        try:
+            search_box = driver.find_element(By.ID, "omega-autofocus")
+        except:
+            try:
+                search_box = driver.find_element(By.TYPE, "search")
     search_box.clear()  
     search_box.send_keys(query)
     search_box.send_keys(Keys.RETURN)
