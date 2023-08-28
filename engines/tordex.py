@@ -18,12 +18,15 @@ def search_with_selenium(driver, query):
     time.sleep(20)
 
     onion_links = []
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    cite_elements = soup.find_all("cite")
-    for cite_element in cite_elements:
-        link_text = cite_element.get_text()
-        if link_text.endswith(".onion"):
-            onion_links.append(link_text)
+
+    html_text = driver.page_source
+
+    soup = BeautifulSoup(html_text, "html.parser")
+    title_element = soup.find("h5", id="title")
+    a_element = title_element.find("a")
+    link = a_element["href"]
+    onion_links.append(link)
+    
     return onion_links
 
 if __name__ == "__main__":
