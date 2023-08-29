@@ -13,6 +13,7 @@ def search_with_selenium(driver, query):
     search_box.send_keys(query)
     search_box.send_keys(Keys.RETURN)
     time.sleep(20)
+    driver.implicitly_wait(30)
 
     onion_links = []
 
