@@ -22,7 +22,7 @@ def search_with_selenium(driver, query):
     html_text = driver.page_source
 
     soup = BeautifulSoup(html_text, "html.parser")
-    title_element = soup.find("h5", id="title")
+    title_element = soup.find_all("h5", id="title")
     a_element = title_element.find("a")
     link = a_element["href"]
     onion_links.append(link)
