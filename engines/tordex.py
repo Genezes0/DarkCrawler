@@ -10,12 +10,21 @@ def extract_links_from_code_2(driver):
     time.sleep(20)
     html_text = driver.page_source
     soup = BeautifulSoup(html_text, "html.parser")
-    code_2_elements = soup.find_all("div", class_="result")
-    for code_2_element in code_2_elements:
-        a_element = code_2_element.find("a")
-        if a_element:
-            link = a_element["href"]
-            onion_links.append(link)
+    
+    # Encontre a div com class="results" e id="link"
+    results_div = soup.find("div", class_="results", id="link")
+    
+    # Verifique se a div foi encontrada
+    if results_div:
+        # Encontre todos os elementos 'a' dentro da div
+        a_elements = results_div.find_all("a")
+        
+        for a_element in a_elements:
+            link = a_element.get("href")
+            # Verifique se o link começa com "http://"
+            if link and link.startswith("http://"):
+                onion_links.append(link)
+    
     return onion_links
 
 if __name__ == "__main__":
