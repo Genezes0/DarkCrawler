@@ -4,10 +4,18 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 
-def extract_links_from_code_2(driver):
+def search_with_selenium(driver, query):
+    try:
+        search_box = driver.find_element(By.NAME, "query")
+    except:
+        search_box = driver.find_element(By.NAME, "q")
+    search_box.clear()  
+    search_box.send_keys(query)
+    search_box.send_keys(Keys.RETURN)
+    time.sleep(20)
+
     onion_links = []
 
-    time.sleep(20)
     html_text = driver.page_source
     soup = BeautifulSoup(html_text, "html.parser")
     
