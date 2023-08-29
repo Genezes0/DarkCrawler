@@ -46,6 +46,7 @@ if __name__ == "__main__":
 
     search_query = input("Insira a palavra-chave: ") 
     onion_links = extract_links_from_code_2(driver)
+    time.sleep(20)
 
     for link in onion_links:
         print(link)
