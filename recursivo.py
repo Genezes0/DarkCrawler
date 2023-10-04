@@ -7,9 +7,11 @@ import os
 from stem import Signal
 from stem.control import Controller
 import joblib
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
-import numpy as np
 
 # Função para configurar o proxy Tor
 def set_tor_proxy():
@@ -26,11 +28,26 @@ def change_tor_ip():
 def search_page(url, search_term):
     set_tor_proxy()
     try:
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        text = soup.get_text()
-        if search_term in text:
-            return text
+        options = Options()
+        options.headless = True
+        profile = webdriver.FirefoxProfile()
+
+        profile.set_preference("network.proxy.type", 1)
+        profile.set_preference("network.proxy.socks", "127.0.0.1")
+        profile.set_preference("network.proxy.socks_port", 9050)
+        profile.set_preference("network.proxy.socks_version", 5)
+        profile.set_preference("network.proxy.socks_remote_dns", True)
+
+        options.profile = profile
+
+        driver = webdriver.Firefox(options=options)
+        driver.get(url)
+
+        page_source = driver.page_source
+        driver.quit()
+
+        if search_term in page_source:
+            return page_source
         return None
     except Exception as e:
         print(f"Erro ao acessar {url}: {e}")
