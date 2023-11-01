@@ -86,7 +86,7 @@ def predict_relevance(X):
 if __name__ == "__main__":
     start_url = "http://tordexu73joywapk2txdr54jed4imqledpcvcuf75qsas2gwdgksvnyd.onion"
     search_term = input("Digite o termo de busca: ")
-    max_depth = 3  # Profundidade máxima de rastreamento
+    max_depth = 5  # Profundidade máxima de rastreamento
     visited_urls = set()
     relevant_links = []
 
