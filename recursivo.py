@@ -111,7 +111,7 @@ if __name__ == "__main__":
     train_model(X, y)
 
     # Prever relevância de novos links
-    new_links = ["http://example.onion", "http://another-example.onion"]
+    new_links = ["http://example.onion", "http://another-example.onion", "http://example85jaylokws4rtcgfmf4ffh38kl90fvggghjntdhet547ghj58.onion", "http://example85jaylokws4rtcgfmf4ffh38kl90fvggghjntdhet547ghj58.onion", "http://62uir23lotvhl0u2ow38eqsqdgfoueu58di795u8oivdgh0bs5xbp9l3.onion", "http://haystak5njsmn2hqkewecpaxetahtwhsbsa64jom2k22z5afxhnpxfid.onion/]
     predictions = predict_relevance(new_links)
     for link, prediction in zip(new_links, predictions):
         if prediction == 1:
